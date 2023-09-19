@@ -20,27 +20,14 @@
     <title>Traviesos</title>
 </head>
 <body class="flex flex-col min-h-screen">
-
+    
     <h1 class="bg bg-yellow-400 text-center mt-10 py-3 w-1/4 mx-auto rounded-full font-medium">
         CARRITO DE COMPRAS
     </h1>
 
-    <ul>
-        {% for product in cart_products %}
-            <li class="bg-white p-3 shadow-md my-2 mx-auto w-1/2 flex justify-between items-center">
-                <span>{{ product.nombre }}</span>
-                <span>Precio: ${{ product.precio }}</span>
-                <form method="post" action="{% url 'eliminar_producto' product.id %}">
-                    {% csrf_token %}
-                    <input type="submit" value="Eliminar" class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded-full">
-                </form>
-            </li>
-        {% empty %}
-            <li class="bg bg-cyan-400 text-center mt-12 py-3 font-bold">
-                No hay nada, compren algo :v
-            </li>
-        {% endfor %}
-    </ul>
+    <p class="bg bg-cyan-400 text-center mt-12 py-3 font-bold">
+        No hay nada, compren algo :v
+    </p>
 
     <a href="{% url 'index' %}" class="bg-red-400 hover:bg-red-500 text-center mt-12 py-3 w-1/4 mx-auto rounded-full font-bold">
         Salir

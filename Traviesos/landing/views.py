@@ -5,17 +5,18 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import InformacionAdicionalUsuarioForm
 from .models import InformacionAdicionalUsuario
+from inventario.models import Producto
 
 def cart_view(request):
     
     return render(request, 'landing/cart.html')  
 
-def juguetes(request):
-    
-    return render(request, 'juguetes.html')
+def juguetes (request):
+    productos = Producto.objects.all()
+    return render(request, 'productos/juguetes.html',{'productos':productos})
 
 def camas_muebles(request):
-    
+    productos = Producto.objects.all()
     return render(request, 'camas_muebles.html')
 
 def ropas_accesorios(request):

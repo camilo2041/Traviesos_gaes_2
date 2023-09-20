@@ -17,7 +17,8 @@ class Tipo_pqrs(models.Model):
         
 class Estado(models.Model):
     id = models.AutoField(primary_key=True)
-    Estado_pqrs = models.CharField(max_length=30)
+    Estado_pqrs = models.CharField(max_length=30) 
+    
 
     def __str__(self):
         return self.Estado_pqrs

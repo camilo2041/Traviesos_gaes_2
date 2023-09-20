@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Tipo_pqrs
 from .forms import FormAgendarPqrs
+from django.contrib.auth.decorators import login_required
 
 def formulario_pqrs(request):
     if request.method == 'POST':
@@ -30,6 +31,7 @@ def formulario_pqrs(request):
 
 def mostrar_formulario(request):
     return render(request, 'PQRS/form.html')
+
 @login_required
 def pqrs (request):
     return render(request,'PQRS/form.html', {'user': request.user})

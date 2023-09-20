@@ -4,7 +4,7 @@ from .models import PQRS, Tipo_pqrs
 class FormAgendarPqrs(forms.ModelForm):
     class Meta:
         model = PQRS
-        fields = ['correo', 'descripcion', 'Tipo_pqrs']
+        fields = ['Tipo_pqrs', 'Nombre', 'Descripcion']
         
     def __init__(self, *args, **kwargs):
         super(FormAgendarPqrs, self).__init__(*args, **kwargs)

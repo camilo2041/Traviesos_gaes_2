@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Tamaño(models.Model):
     Tamaño = models.CharField(max_length=30)
@@ -25,13 +26,12 @@ class Raza (models.Model):
         ordering = ['id']        
 
 class Mascota(models.Model):
-    id = models.IntegerField(primary_key= True)
-    nombre = models.CharField(max_length=30, unique=True)
+    nombre = models.CharField(max_length=30, unique=False)
     raza = models.ForeignKey(Raza, on_delete=models.CASCADE)
     peso = models.CharField(max_length=30, default='0')
     Tamaño = models.ForeignKey(Tamaño, on_delete=models.CASCADE)
-    edad =  models.IntegerField(verbose_name='Edad', default=0)
-    fecha_nacimiento = models.DateField(verbose_name='Fecha de nacimiento', default='2000-01-01')
+    edad =  models.CharField(max_length=3,  verbose_name='Edad')
+    fecha_nacimiento = models.DateField(verbose_name='Fecha de nacimiento')
     
     def __str__(self):
         return self.nombre

@@ -19,7 +19,7 @@ class Estado(models.Model):
     id = models.AutoField(primary_key=True)
     Estado_pqrs = models.CharField(max_length=30)
 
-    def __str__(self):
+def __str__(self):
         return self.Estado_pqrs
 
 class PQRS(models.Model):
@@ -32,6 +32,8 @@ class PQRS(models.Model):
     )
     Nombre = models.CharField(max_length=100, verbose_name='Nombre Usuario')
     Descripcion = models.TextField(max_length=500, verbose_name='Descripcion')
+    Nombre = models.CharField(max_length=100, verbose_name='Nombre Usuario', default='')
+    Descripcion = models.TextField(max_length=500, verbose_name='Descripcion', default='')
     Respuesta = models.CharField(max_length=150, blank=True, null=True)
     Estado_pqrs = models.ForeignKey(Estado, on_delete=models.CASCADE, default=1)
     

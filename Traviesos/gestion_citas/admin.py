@@ -13,7 +13,7 @@ class RazaAdmin(ImportExportModelAdmin):
 
 @admin.register(Mascota)
 class MacotaAdmin(admin.ModelAdmin):
-    list_display = ('id','nombre', 'raza', 'peso', 'Tamaño', 'edad', 'fecha_nacimiento')
+    list_display = ('nombre', 'raza', 'peso', 'Tamaño', 'edad', 'fecha_nacimiento')
     list_editable = ('peso', 'Tamaño','edad',)
     search_fields = ('raza', 'Tamaño',)
     list_filter = ('raza',)

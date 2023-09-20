@@ -54,7 +54,8 @@ crossorigin="anonymous"></script>
         <img class="h-20 border-1 my-2" src="" alt="{{producto.Nombre_producto}}">
         <p class="my-2 text-left text-gray-500 ">{{producto.Descripcion_producto}}</p>
         <div class="text-right">
-          <a class="btn btn-outline-success" href="">Comprar <i class="bi bi-shop-window"></i></a>
+          <form action="{% url "carts:add" %}" method="POST">
+          <a class="btn btn-outline-success" href="carts">Comprar <i class="bi bi-shop-window"></i></a></form>
         </div>
       </div>
       {% endfor %}

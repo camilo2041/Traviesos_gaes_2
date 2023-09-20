@@ -1,0 +1,7 @@
+{% block content %}
+<div class="col-3">
+    {% if product.image %}
+    <img src="{{ product.image.url }}" alt="Imagen del producto">
+    {% endif %}
+</div>
+{% endblock %} 

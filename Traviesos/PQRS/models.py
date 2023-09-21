@@ -16,7 +16,8 @@ class Tipo_pqrs(models.Model):
         ordering = ['id']
 
 class Estado(models.Model):
-    estado = models.CharField(max_length=30, verbose_name='Estado de PQRS')
+    id = models.AutoField(primary_key=True)
+    Estado_pqrs = models.CharField(max_length=30)
 
     def __str__(self):
         return self.estado

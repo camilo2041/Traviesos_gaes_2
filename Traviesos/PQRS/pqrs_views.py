@@ -1,15 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import PQRS, Tipo_pqrs
-from .forms import PQRSForm
+from .models import Tipo_pqrs
+from .forms import FormAgendarPqrs
 
-@login_required
-def lista_pqrs(request):
-    pqrs_del_usuario = PQRS.objects.filter(usuario=request.user)
-    return render(request, 'PQRS/lista_pqrs.html', {'pqrs_del_usuario': pqrs_del_usuario})
-
-@login_required
 def formulario_pqrs(request):
     if request.method == 'POST':
         form = PQRSForm(request.POST)

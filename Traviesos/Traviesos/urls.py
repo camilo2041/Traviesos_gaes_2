@@ -5,6 +5,7 @@ from django.urls import include
 from gestion_citas import citas_views
 from PQRS import pqrs_views
 from carts import cart_views
+from PQRS import pqrs_views
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin:index'),
@@ -21,6 +22,9 @@ urlpatterns = [
     path('registro/', views.registro, name='registro'),
     path('perfil', views.perfil, name='perfil'),
     path('datos', views.registro_informacion_adicional, name='datos'),
+    path('citas/mascotas', citas_views.agregar_mascota, name='mascota'),
+    path('citas/lista_citas', citas_views.ver_citas, name='lista_citas'),
+    path('citas/datos_mascotas', citas_views.datos_mascota, name='datos_mascota'),
     path('comentarios', pqrs_views.coment, name='coment'),
     path('peril pqrs/', pqrs_views.lista_pqrs, name='lista_pqrs')
 ]

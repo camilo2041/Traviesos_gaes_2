@@ -24,18 +24,6 @@ class Categoria(models.Model):
         db_table = 'categorias'
         ordering = ['id'] 
         
-class Compras(models.Model):
-    Nombre_compra = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.Nombre_compra
-    
-    class Meta:
-        verbose_name = 'Compra producto'
-        verbose_name_plural = 'Categorias producto'
-        db_table = 'compras'
-        ordering = ['id'] 
-
 class Producto(models.Model):
     Nombre_producto = models.CharField(max_length=30)
     Precio_producto = models.DecimalField(max_digits=10, decimal_places=2)
@@ -43,6 +31,7 @@ class Producto(models.Model):
     Descripcion_producto = models.CharField(max_length=50)
     Id_marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
     Id_categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    cantidad_disponible = models.CharField(max_length=300, default=1)
 
     def __str__(self):
         return self.Nombre_producto
@@ -53,17 +42,30 @@ class Producto(models.Model):
         db_table = 'productos'
         ordering = ['id']
 
-class Stock(models.Model):
+class DetalleCompra(models.Model):
     Id_producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    Stock_Cantidad = models.IntegerField()
-    
+    cantidad = models.PositiveIntegerField(default=0)  # Cantidad de productos comprados en esta compra
+
     def __str__(self):
-        return self.Id_producto
-    
+        return f"{self.cantidad} de {self.Id_producto.Nombre_producto}"
+
     class Meta:
-        verbose_name = 'Stock'
-        verbose_name_plural = 'Stocks'
-        db_table = 'stocks'
+        verbose_name = 'Detalle de Compra'
+        verbose_name_plural = 'Detalles de Compra'
+        db_table = 'detalles_compra'
+        ordering = ['id']        
+        
+class Compras(models.Model):
+    Nombre_compra = models.CharField(max_length=30)
+    detalles = models.ManyToManyField(DetalleCompra)  # Nueva relación
+
+    def __str__(self):
+        return self.Nombre_compra
+
+    class Meta:
+        verbose_name = 'Compra'
+        verbose_name_plural = 'Compras'
+        db_table = 'compras'
         ordering = ['id']
 
 class Proveedor(models.Model):

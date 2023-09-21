@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprar Producto - {{ producto.Nombre_producto }}</title>
+    <!-- Agrega tus enlaces a CSS y otros recursos aquí -->
+</head>
+<body>
+    <header>
+        <!-- Tu barra de navegación aquí -->
+    </header>
+    <main class="container my-2 text-justify mx-auto flex-grow">
+        <h1 class="mt-4 fs-4 text-center">Catálogo de Premios</h1>
+        <div class="mt-4 grid grid-cols-4 gap-4">
+            <div class="text-center border-1 p-6 rounded-md">
+                <h1 class="fs-5">{{ producto.Nombre_producto }}</h1>
+                <img class="h-20 border-1 my-2" src="{{ producto.Imagen_producto }}" alt="{{ producto.Nombre_producto }}">
+                <p class="my-2 text-left text-gray-500">{{ producto.Precio_producto }}</p>
+                <div class="text-left">
+                    <form method="post" action="{% url 'comprar' producto.id %}">
+                        {% csrf_token %}
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="number" name="cantidad" id="cantidad" min="1" max="{{ producto.cantidad_disponible }}" required>
+                        <button type="submit" class="btn btn-outline-success" name="comprar">Comprar</button>
+                    </form>
+                    <!-- Puedes agregar mensajes de error aquí si es necesario -->
+                    <a href="{% url 'juguetes' %}">Volver a la lista de productos</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

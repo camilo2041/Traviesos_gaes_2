@@ -54,7 +54,12 @@ crossorigin="anonymous"></script>
         <img class="h-20 border-1 my-2" src="" alt="{{producto.Nombre_producto}}">
         <p class="my-2 text-left text-gray-500 ">{{producto.Descripcion_producto}}</p>
         <div class="text-right">
-          <a class="btn btn-outline-success" href="">Comprar <i class="bi bi-shop-window"></i></a>
+          {% csrf_token %}
+          <form method="post" action="{% url 'add' %}">
+            {% csrf_token %}
+            <input type="hidden" name="producto_id" value="{{ producto.id }}">
+            <button type="submit" class="border-1 border-orange-200 text-orange-400 hover:bg-orange-200 hover:text-white px-3 rounded-sm ">Agregar al carrito <i class="bi bi-basket"></i></button>
+          </form> 
         </div>
       </div>
       {% endfor %}

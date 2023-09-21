@@ -21,32 +21,12 @@
     <nav class="bg-orange-200 container-fluid">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <div class="flex items-center space-x-2">
-                    <input type="text"
-                        class="flex-grow px-6 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-300"
-                        placeholder="¿Qué deseas buscar?">
-                    <span id="icon-search"
-                        class="px-3 py-2 text-white bg-orange-300 rounded-md hover:bg-orange-200 cursor-pointer"><i
-                            class="bi bi-search"></i></span>
-                    <a href="carrito.html" class="text-gray-600 hover:text-gray-800 px-2 fs-5"><i
-                            class="bi bi-cart-check-fill"></i></a>
-                </div>
                 <div class="flex items-center">
                     <a href="{% url 'index' %}"><img class="h-8 w-8" src="{% static 'image/image_home/home.png'%}"
                             alt="Logo"></a>
-                    <div class="hidden md:block">
-                        <ul class="flex space-x-4 font-bold fs-5 px-4 sm:">
-                            <li><a href="{% url 'index' %}"
-                                    class="text-gray-600 hover:bg-orange-300 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Accesorios</a>
-                            </li>
-                            <li><a href="{% url 'index' %}"
-                                    class="text-gray-600 hover:bg-orange-300 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Alimentos</a>
-                            </li>
-                            <li><a href="{% url 'index' %}"
-                                    class="text-gray-600 hover:bg-orange-300 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Comentarios</a>
-                            </li>
-                        </ul>
-                    </div>
+                </div>
+                <div>
+                    <a href="{% url 'carts:cart'  %}" class="text-gray-600 hover:text-gray-800 px-2 fs-5"><i class="bi bi-cart-check-fill"></i></a>
                 </div>
             </div>
         </div>

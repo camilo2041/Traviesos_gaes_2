@@ -22,28 +22,20 @@ crossorigin="anonymous"></script>
 </head>
 <body class="flex flex-col min-h-screen">
   <header>
-  <nav class="bg-orange-200 container-fluid">
+    <nav class="bg-orange-200 container-fluid">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex items-center justify-between h-16">
-              <div class="flex items-center space-x-2">
-                <input type="text" class="flex-grow px-6 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-orange-300" placeholder="¿Qué deseas buscar?">
-                <span id="icon-search" class="px-3 py-2 text-white bg-orange-300 rounded-md hover:bg-orange-200 cursor-pointer"><i class="bi bi-search"></i></span>
-                <a href="carrito.html" class="text-gray-600 hover:text-gray-800 px-2 fs-5"><i class="bi bi-cart-check-fill"></i></a>
-              </div>
-            <div class="flex items-center">
-              <a href="{% url 'index' %}"><img class="h-8 w-8" src="{% static 'image/image_home/home.png'%}" alt="Logo"></a>
-              <div class="hidden md:block">
-                <ul class="flex space-x-4 font-bold fs-5 px-4 sm:">
-                  <li><a href="{% url 'index' %}" class="text-gray-600 hover:bg-orange-300 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Accesorios</a></li>
-                  <li><a href="{% url 'index' %}" class="text-gray-600 hover:bg-orange-300 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Alimentos</a></li>
-                  <li><a href="{% url 'index' %}" class="text-gray-600 hover:bg-orange-300 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Comentarios</a></li>
-                </ul>
-              </div>
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="{% url 'index' %}"><img class="h-8 w-8" src="{% static 'image/image_home/home.png'%}"
+                            alt="Logo"></a>
+                </div>
+                <div>
+                    <a href="{% url 'carts:cart'  %}" class="text-gray-600 hover:text-gray-800 px-2 fs-5"><i class="bi bi-cart-check-fill"></i></a>
+                </div>
             </div>
-          </div>
         </div>
     </nav>
-  </header>
+</header>
 <main class="container my-2 text-justify mx-auto flex-grow">
 <div>
     <h1 class="mt-4 fs-4 text-center">Catalogo de premios</h1>
@@ -52,9 +44,14 @@ crossorigin="anonymous"></script>
       <div class="text-center border-1 p-6 rounded-md">
         <h1 class="fs-5">{{producto.Nombre_producto}}</h1>
         <img class="h-20 border-1 my-2" src="" alt="{{producto.Nombre_producto}}">
-        <p class="my-2 text-left text-gray-500 ">{{producto.Descripcion_producto}}</p>
+        <p class="my-2 text-left text-gray-500 ">{{ producto.Precio_producto }}</p>
         <div class="text-right">
-          <a class="btn btn-outline-success" href="">Comprar <i class="bi bi-shop-window"></i></a>
+          {% csrf_token %}
+          <form method="post" action="{% url 'add' %}">
+            {% csrf_token %}
+            <input type="hidden" name="producto_id" value="{{ producto.id }}">
+            <button type="submit" class="border-1 border-orange-200 text-orange-400 hover:bg-orange-200 hover:text-white px-3 rounded-sm ">Agregar al carrito <i class="bi bi-basket"></i></button>
+          </form> 
         </div>
       </div>
       {% endfor %}

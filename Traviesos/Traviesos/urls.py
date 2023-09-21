@@ -5,7 +5,7 @@ from django.urls import include
 from gestion_citas import citas_views
 from PQRS import pqrs_views
 from carts import cart_views
-from PQRS import pqrs_views
+from facturacion import facturacion_views
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin:index'),
@@ -26,5 +26,7 @@ urlpatterns = [
     path('citas/lista_citas', citas_views.ver_citas, name='lista_citas'),
     path('citas/datos_mascotas', citas_views.datos_mascota, name='datos_mascota'),
     path('comentarios', pqrs_views.coment, name='coment'),
-    path('peril pqrs/', pqrs_views.lista_pqrs, name='lista_pqrs')
+    path('peril pqrs/', pqrs_views.lista_pqrs, name='lista_pqrs'),
+    path('comprar/<int:producto_id>/', facturacion_views.comprar_producto, name='comprar'),
+    path('pagina confirmacion', facturacion_views.confirmacion, name='pagina_de_confirmacion')
 ]

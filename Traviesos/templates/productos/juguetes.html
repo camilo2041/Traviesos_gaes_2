@@ -51,7 +51,7 @@ crossorigin="anonymous"></script>
     {% for producto in productos %}
       <div class="text-center border-1 p-6 rounded-md">
         <h1 class="fs-5">{{ producto.Nombre_producto }}</h1>
-        <img class="h-20 border-1 my-2" src="" alt="{{ producto.Imagen_producto }}">
+        <img class="h-20 border-1 my-2" src="{{ producto.Imagen_producto }}">
         <p class="my-2 text-left text-gray-500 ">{{ producto.Descripcion_producto }}</p>
         <p class="my-2 text-left text-gray-500 ">{{ producto.Precio_producto }}</p>
         <div class="text-right">

@@ -50,11 +50,18 @@ crossorigin="anonymous"></script>
     <div class="mt-4 grid grid-cols-4 gap-4">
     {% for producto in productos %}
       <div class="text-center border-1 p-6 rounded-md">
-        <h1 class="fs-5">{{producto.Nombre_producto}}</h1>
-        <img class="h-20 border-1 my-2" src="" alt="{{producto.Nombre_producto}}">
-        <p class="my-2 text-left text-gray-500 ">{{producto.Descripcion_producto}}</p>
+        <h1 class="fs-5">{{ producto.Nombre_producto }}</h1>
+        <img class="h-20 border-1 my-2" src="{{ producto.Imagen_producto }}">
+        <p class="my-2 text-left text-gray-500 ">{{ producto.Descripcion_producto }}</p>
+        <p class="my-2 text-left text-gray-500 ">{{ producto.Precio_producto }}</p>
         <div class="text-right">
-          <a class="btn btn-outline-success" href="">Comprar <i class="bi bi-shop-window"></i></a>
+          {% csrf_token %}
+          <a class="btn btn-outline-success" href="{% url 'carts:add' %}">Añadir al carrito <i class="bi bi-bookmark-check"></i></a>
+          <form method="post" action="{% url 'add' %}">
+            {% csrf_token %}
+            <input type="hidden" name="producto_id" value="{{ producto.id }}">
+            <button type="submit" class="btn btn-warning">Agregar al carrito</button>
+          </form> 
         </div>
       </div>
       {% endfor %}

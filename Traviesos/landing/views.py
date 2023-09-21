@@ -5,6 +5,25 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import InformacionAdicionalUsuarioForm
 from .models import InformacionAdicionalUsuario
+from inventario.models import Producto,Categoria
+
+def cart_view(request):
+    
+    return render(request, 'landing/cart.html')  
+def juguetes(request):
+    categoria_juguetes = Categoria.objects.get(Nombre_categoria='Juguetes')
+    productos = Producto.objects.filter(Id_categoria=categoria_juguetes)
+    return render(request, 'productos/juguetes.html', {'productos': productos})
+
+def camas_muebles(request):
+    categoria_camas = Categoria.objects.get(Nombre_categoria='camas_muebles')
+    productos = Producto.objects.filter(Id_categoria=categoria_camas)
+    return render(request, 'productos/camas_muebles.html', {'productos': productos})
+
+def ropas_accesorios(request):
+    categoria_ropa = Categoria.objects.get(Nombre_categoria='ropas_accesorios')
+    productos = Producto.objects.filter(Id_categoria=categoria_ropa)
+    return render(request, 'productos/ropas_accesorios.html', {'productos': productos})
 
 def index (request):
     return render(request, 'index.html')
@@ -64,4 +83,4 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.success(request, 'Sesión finalizada')
-    return redirect('index')    
+    return redirect('index')

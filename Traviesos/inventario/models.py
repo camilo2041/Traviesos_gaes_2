@@ -19,9 +19,21 @@ class Categoria(models.Model):
         return self.Nombre_categoria
     
     class Meta:
-        verbose_name = 'Categoria producto'
-        verbose_name_plural = 'Categorias producto'
+        verbose_name = 'Categoria'
+        verbose_name_plural = 'Categorias'
         db_table = 'categorias'
+        ordering = ['id'] 
+        
+class Compras(models.Model):
+    Nombre_compra = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.Nombre_compra
+    
+    class Meta:
+        verbose_name = 'Compra producto'
+        verbose_name_plural = 'Categorias producto'
+        db_table = 'compras'
         ordering = ['id'] 
 
 class Producto(models.Model):

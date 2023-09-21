@@ -17,7 +17,7 @@
     <script src="//code.tidio.co/kczpks5iafw7sips7x6vfgjynam1qzs0.js" async></script>
     <link rel="stylesheet" href="{% static 'css/style3.css' %}">
     <link rel="website icon" href="{% static 'image/image_home/home.png' %}">
-    <title>Mascotas</title>
+    <title>Perfil</title>
 </head>
 <header>
     <nav class="bg-orange-200 container-fluid">
@@ -51,11 +51,16 @@
             <div class="p-4">
                 <h1 class="fs-5 font-semibold">¡Bienvenido a tu perfil, {{ user.username }}!</h1>
                 <ul class="mt-4">
-                    <li class="py-2 hover:bg-gray-700"><a href="#datos"><i class="bi bi-person-fill-gear"></i> Tus
-                            Datos</a></li>
-                    <li class="py-2 hover:bg-gray-700"><a href="mascotas"><i class="fa-solid fa-dog"></i> Tus mascotas</a></li>
+                    <li class="py-2 hover:bg-gray-700"><a href="#datos"><i class="bi bi-person-fill-gear"></i> Tus Datos</a></li>
+                    <li class="py-2 hover:bg-gray-700"><a href="citas/mascotas"><i class="fa-solid fa-dog"></i>  Tus mascotas</a></li>
                     <li class="py-2 hover:bg-gray-700"><a href="citas/lista_citas"><i class="fa-sharp fa-solid fa-clipboard-list"></i>  Tus citas</a></li>
+                    <li class="py-2 hover:bg-gray-700"><a href="{% url 'lista_pqrs' %}"><i class="bi bi-folder"></i>  Tus PQRS</a></li>
                 </ul>
+                <ul class="mt-80">
+                    <li>
+                      <i class="bi bi-arrow-return-left"></i> volver
+                    </li>
+                  </ul>
             </div>
         </aside>
         <main class="content p-8 ">

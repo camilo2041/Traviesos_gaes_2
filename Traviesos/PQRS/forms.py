@@ -1,11 +1,7 @@
 from django import forms
 from .models import PQRS
 
-class FormAgendarPqrs(forms.ModelForm):
+class PQRSForm(forms.ModelForm):
     class Meta:
         model = PQRS
-        fields = ['Nombre', 'Descripcion', 'Tipo_pqrs']
-        
-    def __init__(self, *args, **kwargs):
-        super(FormAgendarPqrs, self).__init__(*args, **kwargs)
-        self.fields['Tipo_pqrs'].empty_label = "Seleccionar"
+        fields = ['Tipo_pqrs', 'Descripcion']

@@ -9,7 +9,7 @@ from carts import cart_views
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin:index'),
     path('carrito/', include('carts.urls')),
-     path('add/', cart_views.add, name='add'),
+    path('add/', cart_views.add, name='add'),
     path('juguetes/', views.juguetes, name='juguetes'),
     path('camas_muebles/', views.juguetes, name='camas_muebles'),
     path('ropas_accesorios/', views.juguetes, name='ropas_accesorios'),

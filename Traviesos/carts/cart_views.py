@@ -8,13 +8,14 @@ def cart(request):
 
         
     return render(request, 'carts/cart.html', {
-        
+        'cart':cart
     })
     
 def add(request):
     cart = get_or_create_cart(request)
-    products = Producto.objects.get(id=request.POST.get('product_id'))
+    product = Producto.objects.get(pk=request.POST.get('producto_id'))
     
+    cart.products.add(product)
     return render(request, 'carts/add.html', {
-        'product': Producto
+        'product': product
     })

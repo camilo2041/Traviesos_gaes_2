@@ -1,7 +1,7 @@
 {% block content %}
 <div class="col-3">
-    {% if product.image %}
-    <img src="{{ product.image.url }}" alt="Imagen del producto">
+    {% if producto.Imagen_producto %}
+    <img src="{{ producto.Imagen_producto.url }}" alt="Imagen del producto">
     {% endif %}
 </div>
 <div class="col">
@@ -9,11 +9,11 @@
         Producto agregado al carrito de compras
     </div>
     <div class="">
-        <a href="{% url 'products:producto' product.slug %}">
-            {{ product.title}}
+        <a href="{% url 'juguetes' %}">
+            {{ producto.Nombre_producto }}
         </a>
         <div class="font-weight-bold text-danger">
-            ${{ product.price}}
+            ${{ producto.Precio_producto }}
         </div>
     </div>
 </div>

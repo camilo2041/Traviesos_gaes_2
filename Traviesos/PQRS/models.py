@@ -1,9 +1,9 @@
 from django.db import models
-from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.db.models.signals import post_save
+from django.contrib.auth.models import User
 
 class Tipo_pqrs(models.Model):
-    id = models.AutoField(primary_key=True)
     Tipo_pqrs = models.CharField(max_length=30)
     
     def __str__(self):
@@ -14,35 +14,33 @@ class Tipo_pqrs(models.Model):
         verbose_name_plural = 'Tipos pqrs'
         db_table = 'tipo_pqrs'
         ordering = ['id']
-        
+
 class Estado(models.Model):
-    id = models.AutoField(primary_key=True)
-    Estado_pqrs = models.CharField(max_length=30)
+    estado = models.CharField(max_length=30, verbose_name='Estado de PQRS')
 
     def __str__(self):
-        return self.Estado_pqrs
+        return self.estado
 
 class PQRS(models.Model):
-    id = models.AutoField(primary_key=True)
-    Tipo_pqrs = models.ForeignKey(Tipo_pqrs, on_delete=models.CASCADE)
+    Tipo_pqrs = models.ForeignKey(Tipo_pqrs, on_delete=models.CASCADE, verbose_name='Tipo de PQRS')
     create_at = models.DateTimeField(
         auto_now_add=True,
         db_comment="Fecha de creacion",
         verbose_name="Fecha de creacion"
     )
-    Nombre = models.CharField(max_length=100, verbose_name='Nombre Usuario')
-    Descripcion = models.TextField(max_length=500, verbose_name='Descripcion')
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Usuario')
+    Descripcion = models.TextField(max_length=500, verbose_name='Descripcion', default='')
     Respuesta = models.CharField(max_length=150, blank=True, null=True)
     Estado_pqrs = models.ForeignKey(Estado, on_delete=models.CASCADE, default=1)
     
     def __str__(self):
-        return self.Nombre
+        return self.Descripcion
 
 # Esta función se ejecutará después de que se guarde una instancia de PQRS
 @receiver(post_save, sender=PQRS)
 def actualizar_estado(sender, instance, **kwargs):
     if instance.Respuesta and instance.Estado_pqrs.Estado_pqrs == "Pendiente":
-        estado_respuesta = Estado.objects.get(Estado_pqrs="Respuesta")
+        estado_respuesta = Estado.objects.get(Estado_pqrs="En proceso")
         instance.Estado_pqrs = estado_respuesta
         instance.save()
     
@@ -51,3 +49,4 @@ def actualizar_estado(sender, instance, **kwargs):
         verbose_name_plural = 'PQRS´s'
         db_table = 'pqrs'
         ordering = ['id']
+

@@ -1,0 +1,44 @@
+{% block content %} 
+
+    {% if cart.products.exists %}
+        <div class="col-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in cart.products.all %}
+                    <tr>
+                        <th>{{ forloop.counter }}</th>
+                        <th>
+                            {% if product.Imagen_producto %}
+                            <img src="{{ product.Imagen_producto }}" alt="Imagen del producto" width="60" height="60">
+                            {% endif %}
+                        </th>
+                        <th>
+                            <a href="{% url 'juguetes' %}">{{ product.Nombre_producto }}</a>
+                        </th>
+                        <th>1</th>
+                        <th>
+                            <span class="fw-bold text-danger">{{ product.Precio_producto }}</span>
+                        </th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+        </div>
+    {% else %} 
+        <div class="col">
+            <p class="h3">Tu carrito de compras está vacío.</p>
+            <a href="{% url 'index' %}">Seguir comprando</a>
+        </div>
+    {% endif %}
+{% endblock  %} 

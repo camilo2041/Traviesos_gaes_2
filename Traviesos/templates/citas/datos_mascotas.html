@@ -13,48 +13,26 @@
     <script src="//code.tidio.co/kczpks5iafw7sips7x6vfgjynam1qzs0.js" async></script>
     <link rel="stylesheet" href="{% static 'css/style3.css' %}">
     <link rel="website icon" href="{% static 'image/image_home/home.png' %}">
-    <title>Mascotas</title>
+    <title>Perfil</title>
     </head>
-    <header>
-      <nav class="bg-orange-200 container-fluid">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex items-center justify-between h-16">
-            <div class="flex items-center space-x-2">
-            </div>
-            <div class="flex items-center">
-              <a href="{% url 'index' %}"><img class="h-8 w-8" src="{% static 'image/image_home/home.png'%}" alt="Logo"></a>
-              <div class="hidden md:block">
-                <ul class="flex space-x-4 font-bold fs-5 px-4 sm:">
-                  <li><a href="{% url 'index' %}"
-                      class="text-gray-600 hover:bg-orange-300 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Accesorios</a>
-                  </li>
-                  <li><a href="{% url 'index' %}"
-                      class="text-gray-600 hover:bg-orange-300 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Alimentos</a>
-                  </li>
-                  <li><a href="{% url 'index' %}"
-                      class="text-gray-600 hover:bg-orange-300 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium">Comentarios</a>
+    <body class="bg-orange-50">
+        <div class="flex">
+          <aside class="sidebar bg-gray-800 text-white h-screen fixed top-0 left-0 overflow-y-auto">
+            <div class="p-4">
+                <h1 class="fs-5 font-semibold">¡Bienvenido a tu perfil, {{ user.username }}!</h1>
+                <ul class="mt-4">
+                    <li class="py-2 hover:bg-gray-700"><a href="#datos"><i class="bi bi-person-fill-gear"></i> Tus Datos</a></li>
+                    <li class="py-2 hover:bg-gray-700"><a href="citas/mascotas"><i class="fa-solid fa-dog"></i>  Tus mascotas</a></li>
+                    <li class="py-2 hover:bg-gray-700"><a href="citas/lista_citas"><i class="fa-sharp fa-solid fa-clipboard-list"></i>  Tus citas</a></li>
+                    <li class="py-2 hover:bg-gray-700"><a href="{% url 'lista_pqrs' %}"><i class="bi bi-folder"></i>  Tus PQRS</a></li>
+                </ul>
+                <ul class="mt-80">
+                  <li>
+                    <i class="bi bi-arrow-return-left"></i> volver
                   </li>
                 </ul>
-              </div>
             </div>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <body class="bg-orange-50">
-      <main class="content p-8 ">
-        <div class="flex">
-            <aside class="sidebar bg-gray-800 text-white h-screen fixed top-0 left-0 overflow-y-auto">
-                <div class="p-4"><br><br>
-                    <h1 class="fs-5 font-semibold">¡Bienvenido a tu perfil, {{ user.username }}!</h1>
-                    <ul class="mt-4">
-                        <li class="py-2 hover:bg-gray-700"> <a href="{% url 'perfil' %}"><i class="bi bi-person-fill-gear"></i> Tus Datos</a></li>
-                        <li class="py-2 hover:bg-gray-700"> <a href="mascotas"><i class="fa-solid fa-dog"></i>  Tus mascotas</a></li>
-                        <li class="py-2 hover:bg-gray-700"><a href="citas/lista_citas"><i class="fa-sharp fa-solid fa-clipboard-list"></i>  Tus citas</a></li>
-                    </ul>
-                </div>
-            </aside>
-            
+        </aside>  
               <div class="flex justify-center mt-24">
                   <form class="bg-amber-100 border-1 p-4" method="post">
                       <h1 class="mb-2 fs-5 text-center p-2">Registro de Información Adicional</h1>

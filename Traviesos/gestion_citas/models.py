@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User 
 
 class Tamaño(models.Model):
     Tamaño = models.CharField(max_length=30)
@@ -32,6 +32,7 @@ class Mascota(models.Model):
     Tamaño = models.ForeignKey(Tamaño, on_delete=models.CASCADE)
     edad =  models.CharField(max_length=3,  verbose_name='Edad')
     fecha_nacimiento = models.DateField(verbose_name='Fecha de nacimiento')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default='1')
     
     def __str__(self):
         return self.nombre
@@ -41,9 +42,6 @@ class Mascota(models.Model):
         verbose_name_plural = 'Mascotas'
         db_table = 'mascota'
         ordering = ['id']
-        
-        
-
         
 
 class AgendarCita(models.Model):
@@ -59,7 +57,7 @@ class AgendarCita(models.Model):
     Fecha = models.DateField(verbose_name='Fecha de la cita')
     Hora = models.TimeField(verbose_name='Hora de la cita')
     Telefono = models.CharField(max_length=15, verbose_name='Número de contacto')
-    descripcion = models.TextField(max_length=200, verbose_name='Descripcion', default='')
+    descripcion = models.TextField(max_length=200, verbose_name='Descripcion')
 
     def __str__(self):
         return str(self.Nombre)

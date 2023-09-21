@@ -1,12 +1,12 @@
 from import_export import resources
-from .models import Tipo_pqrs, Estado
+from .models import PQRS, Estado  
 
 class PqrsResource(resources.ModelResource):
-       class Meta:
-              Model = Tipo_pqrs
-              fields = ('id','Tipo_pqrs')
-              
+    class Meta:
+        model = PQRS  
+        fields = ('id', 'Tipo_pqrs', 'usuario', 'Descripcion', 'Respuesta', 'Estado_pqrs')
+
 class EstadoResource(resources.ModelResource):
-       class Meta:
-              Model = Estado
-              fields = ('id', 'Estado_pqrs')
+    class Meta:
+        model = Estado
+        fields = ('id', 'Estado_pqrs')

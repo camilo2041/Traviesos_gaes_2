@@ -1,0 +1,31 @@
+Nombre_producto,Precio_producto,Imagen_producto,Descripcion_producto,Id_marca,Id_categoria
+Pelota de goma.,11000,example,Perfecta para juegos de buscar y traer.,1,1
+Raton de peluche.,15500,../../static/image/image_productos/accesorios/2raton_peluche.jpg,Incluye catnip para estimular el juego.,1,1
+Disco volador.,5000,../../static/image/image_productos/accesorios/3disco_volador.jpg,Divertido para lanzar y atrapar en el aire.,1,1
+Peluche masticable.,12000,../../static/image/image_productos/accesorios/4peluche_masticable.jpg,Ayuda a mantener los dientes limpios.,1,1
+Pelota dispensadora.,12500,../../static/image/image_productos/accesorios/5juguete_interactivo.jpg,Proporciona comida o golosinas mientras juegas.,1,1
+Juguete interactivo.,22000,../../static/image/image_productos/accesorios/6juguete interactivo.jpg,Estimula la mente de tu mascota con desafios.,1,1
+Cuerda dental.,7500,../../static/image/image_productos/accesorios/7cuerda_dental.jpg,Fomenta la higiene bucal mientras juega.,1,1
+Juguetes chirriantes.,13000,../../static/image/image_productos/accesorios/8juguete_chirreante.jpg,Sonido divertido que atrae la atenciin.,1,1
+Peluche con sonido.,22000,../../static/image/image_productos/accesorios/9peluche_sonido.jpg,Ofrece entretenimiento con ruidos divertidos.,1,1
+Juguete de rompecabezas.,21000,../../static/image/image_productos/accesorios/10juguete_rompecabeza.jpg,Ejercita la mente resolviendo problemas.,1,1
+Cama acolchada.,35000,../../static/image/image_productos/camas/11cama_alcochada.jpg,Proporciona comodidad y calidez.,1,2
+Sofa reclinable.,34000,../../static/image/image_productos/camas/12sofa_reclinable.jpg,Un lujoso lugar para descansar.,1,2
+Caseta de madera.,50000,../../static/image/image_productos/camas/13casa_madera.jpg,Refugio elegante para exteriores.,1,2
+Cama elevada.,45000,../../static/image/image_productos/camas/14cama_elevada.jpg,Mantiene a las mascotas frescas y comodas.,1,2
+Torre de rascado.,60000,../../static/image/image_productos/camas/15torre_rascado.jpg,Satisface el instinto de rascar de los gatos.,1,2
+Jaula espaciosa.,55000,../../static/image/image_productos/camas/16jaula_espaciosa.jpg,Hogar seguro para pequeños animales.,1,2
+Cuna para cachorros.,44500,../../static/image/image_productos/camas/17cuna_cachorros.jpg,Comodidad para los mas jovenes.,1,2
+Escaleras.,32000,../../static/image/image_productos/camas/18escaleras.jpg,Facilita el acceso a lugares altos.,1,2
+Transportadora.,52000,../../static/image/image_productos/camas/19transportadora.jpg,Ideal para viajes y paseos.,1,2
+Caja de arena autolimpiante.,250000,../../static/image/image_productos/camas/20caja_arena.jpg,Mantiene la higiene sin esfuerzo.,1,2
+Collar con placa.,17000,../../static/image/image_productos/ropa/21collar_placa.jpg,Identificacion segura y elegante.,1,3
+Arnes con correa.,14000,../../static/image/image_productos/ropa/22arnes_correa.jpg,Paseos comodos y controlados.,1,3
+Abrigo para invierno.,19000,../../static/image/image_productos/ropa/23abrigo_invierno.jpg,Manten a tu mascota calida en invierno.,1,3
+Gafas de sol.,5600,../../static/image/image_productos/ropa/24gafas_sol.jpg,Protege sus ojos del sol.,1,3
+Sombrero con estilo.,5000,../../static/image/image_productos/ropa/25sombrero.jpg,Agrega un toque de moda.,1,3
+Pijama suave.,13000,../../static/image/image_productos/ropa/26pijama.jpg,Comodo y abrigado para las noches.,1,3
+Bandana reversible.,6000,../../static/image/image_productos/ropa/27bandana.jpg,Accesorio versatil y con estilo.,1,3
+Calcetines antideslizantes.,4500,../../static/image/image_productos/ropa/28calcetines.jpg,Evita resbalones en superficies lisas.,1,3
+Pañuelo refrescante.,3500,../../static/image/image_productos/ropa/29pañuelo.jpg,Ideal para climas calidos.,1,3
+Chaleco salvavidas.,40000,../../static/image/image_productos/ropa/30chaleco_salvavidas.jpg,Seguridad en aventuras acusticas.,1,3

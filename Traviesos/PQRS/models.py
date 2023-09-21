@@ -3,38 +3,29 @@ from django.dispatch import receiver
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 
-class Tipo_pqrs(models.Model):
-    Tipo_pqrs = models.CharField(max_length=30)
-    
-    def __str__(self):
-        return self.Tipo_pqrs
-    
-    class Meta:
-        verbose_name = 'Tipo pqrs'
-        verbose_name_plural = 'Tipos pqrs'
-        db_table = 'tipo_pqrs'
-        ordering = ['id']
-
 class Estado(models.Model):
     id = models.AutoField(primary_key=True)
     Estado_pqrs = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.estado
+        return self.Estado_pqrs
 
 class PQRS(models.Model):
-    Tipo_pqrs = models.ForeignKey(Tipo_pqrs, on_delete=models.CASCADE, verbose_name='Tipo de PQRS')
-    create_at = models.DateTimeField(
-        auto_now_add=True,
-        db_comment="Fecha de creacion",
-        verbose_name="Fecha de creacion"
-    )
+    TIPO_PQRS_CHOICES = [
+        ('Seleccionar', 'Seleccionar'),
+        ('Peticion', 'Peticion'),
+        ('Queja', 'Queja'),
+        ('Reclamo', 'Reclamo'),
+        ('Sugerencia', 'Sugerencia'),
+    ]
+
+    Tipo_pqrs = models.CharField(max_length=100, choices=TIPO_PQRS_CHOICES, verbose_name='Tipo pqrs')
     usuario = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Usuario')
     Descripcion = models.TextField(max_length=500, verbose_name='Descripcion', default='')
     Respuesta = models.CharField(max_length=150, blank=True, null=True)
     Estado_pqrs = models.ForeignKey(Estado, on_delete=models.CASCADE, default=1)
     
-    def __str__(self):
+def __str__(self):
         return self.Descripcion
 
 # Esta función se ejecutará después de que se guarde una instancia de PQRS

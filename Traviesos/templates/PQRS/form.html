@@ -66,46 +66,30 @@
         </div>
         {% endif %}
 
-        <form method="POST" class="max-w-md mx-auto p-4 bg-white rounded shadow mt-4">
+        <br><br><br><br><br><br><form method="POST" action="{% url 'pqrs' %}">
             {% csrf_token %}
-            <div class="mb-4">
-                <label for="{{ form.Tipo_pqrs.id_for_label }}" class="form-label">Tipo de PQRS</label>
-                {{ form.Tipo_pqrs }}
-                <p class="mt-2 text-xs text-red-500">Por favor, seleccione el tipo de PQRS.</p>
-            </div>
-            
-            <div class="mb-4">
-                <label for="correo" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
-                <div class="mt-1 relative">
-                    <input type="email"
-                        class="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                        name="correo" placeholder="correo@correo.com" required>
-                    <span class="absolute right-2 top-2 text-gray-500">
-                        <i class="bi bi-envelope-fill"></i>
-                    </span>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label for="tipo" class="form-label"><b>Tipo de solicitud</b></label>
+                    <select class="form-select" name="Tipo_pqrs" id="tipo" aria-label="Default select example" required>
+                        <option value="" selected>Seleccionar</option>
+                        <option value="Peticion">Peticion</option>
+                        <option value="Queja">Queja</option>
+                        <option value="Reclamo">Reclamo</option>
+                        <option value="Sugerencia">Sugerencia</option>
+                    </select><br>
                 </div>
-                <p class="mt-2 text-xs text-red-500">El correo solo puede contener letras, números, puntos, guiones y
-                    guión bajo.</p>
             </div>
-
-            <!-- Grupo: Motivo -->
-            <div class="mb-4">
-                <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
-                <div class="mt-1 relative">
-                    <textarea
-                        class="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                        name="descripcion" required></textarea>
-                    <span class="absolute right-2 top-2 text-gray-500">
-                        <i class="bi bi-chat-left-fill"></i>
-                    </span>
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label for="{{ .raza.id_for_label }}" class="form-label"><b>Descripción de la mascota</b></label>
+                    <textarea class="form-control" name="Descripcion" placeholder="" id="descripcion" cols="100" style="height: 100px"></textarea>
                 </div>
-                <p class="mt-2 text-xs text-red-500">Este campo es obligatorio.</p>
             </div>
-
-            <div class="flex justify-center">
-                <button type="submit" name="generar"
-                    class="px-4 py-2 border-blue-500 border-1 rounded hover:bg-blue-500 hover:text-white">Enviar</button>
+            <div class="d-grid gap-2">
+                <button class="p-2 border-2 border-black rounded-md hover:bg-orange hover:text-orange-200" type="submit" value="Submit"><b>Enviar</b></button>
             </div>
         </form>
+        
     </div>
 </body>

@@ -1,25 +1,27 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Tipo_pqrs
+from .models import PQRS
+from .forms import formulario_pqrs
 
 @login_required
 def lista_pqrs(request):
     pqrs_del_usuario = PQRS.objects.filter(usuario=request.user)
     return render(request, 'PQRS/lista_pqrs.html', {'pqrs_del_usuario': pqrs_del_usuario})
 
-def formulario_pqrs(request):
+def formulariopqrs(request):
     if request.method == 'POST':
-        form = PQRSForm(request.POST)
+        form = formulario_pqrs(request.POST)
         if form.is_valid():
-            pqrs = form.save(commit=False)
-            pqrs.usuario = request.user  # Asigna el usuario actual
-            pqrs.save()
-            return redirect('página_de_confirmación')  # Puedes redirigir a una página de confirmación o a donde desees.
+            informacion = form.save(commit=False)
+            informacion.usuario = request.user 
+            informacion.save()
+            messages.success(request, 'Cita guardada correctamente.')
+            return redirect('pqrs')
     else:
-        form = PQRSForm()
-    
+        form = formulario_pqrs()
     return render(request, 'formulario_pqrs.html', {'form': form})
+
 def mostrar_formulario(request):
     return render(request, 'PQRS/form.html')
 

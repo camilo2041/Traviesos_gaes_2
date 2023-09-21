@@ -49,4 +49,3 @@ def actualizar_estado(sender, instance, **kwargs):
         verbose_name_plural = 'PQRS´s'
         db_table = 'pqrs'
         ordering = ['id']
-

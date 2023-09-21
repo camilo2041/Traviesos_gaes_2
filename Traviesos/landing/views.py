@@ -10,7 +10,6 @@ from inventario.models import Producto,Categoria
 def cart_view(request):
     
     return render(request, 'landing/cart.html')  
-
 def juguetes(request):
     categoria_juguetes = Categoria.objects.get(Nombre_categoria='Juguetes')
     productos = Producto.objects.filter(Id_categoria=categoria_juguetes)
@@ -84,4 +83,4 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.success(request, 'Sesión finalizada')
-    return redirect('index')    
+    return redirect('index')

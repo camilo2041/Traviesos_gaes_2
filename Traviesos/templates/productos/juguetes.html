@@ -55,7 +55,7 @@ crossorigin="anonymous"></script>
         <p class="my-2 text-left text-gray-500 ">{{producto.Descripcion_producto}}</p>
         <div class="text-right">
           <form action="{% url "carts:add" %}" method="POST">
-          <a class="btn btn-outline-success" href="carts">Comprar <i class="bi bi-shop-window"></i></a></form>
+          <a class="btn btn-outline-success" href="{% url 'add' %}">Añadir al carrito <i class="bi bi-bookmark-check"></i></a></form>
         </div>
       </div>
       {% endfor %}
